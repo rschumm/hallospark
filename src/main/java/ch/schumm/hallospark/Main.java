@@ -12,10 +12,11 @@ public class Main {
 		public static void main(String[] args) {
 
 	
-			port(5501);
+			port(8080);
 			staticFileLocation("/public");
 
-			get("/hallo", (req, res) -> "Hello OpenShift!");
+			get("/hallo", (req, res) -> "Hallo OpenShift!");
+			get("/", (req, res) -> "Hello Index OpenShift!");
 			
 		}
 
