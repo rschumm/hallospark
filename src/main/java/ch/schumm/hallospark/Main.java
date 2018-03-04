@@ -16,7 +16,7 @@ public class Main {
 			staticFileLocation("/public");
 
 			get("/hallo", (req, res) -> "Hallo OpenShift!");
-			get("/", (req, res) -> "Hello Index OpenShift!");
+			get("/", (req, res) -> "Index OpenShift!");
 			
 		}
 
