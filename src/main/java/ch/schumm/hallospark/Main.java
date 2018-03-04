@@ -15,7 +15,7 @@ public class Main {
 			port(8080);
 			staticFileLocation("/public");
 
-			get("/hallo", (req, res) -> "Hallo OpenShift!");
+			get("/hallo/:name", (req, res) -> String.format("Hallo %s, sagt OpenShift!", req.params(":name")));
 			get("/", (req, res) -> "Index OpenShift!");
 			
 		}
