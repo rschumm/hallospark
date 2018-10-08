@@ -1,4 +1,4 @@
-Minimal-App auf Basis von Spark-Java für Exerimente auf der Cloud. 
+Minimal-App auf Basis von [Spark-Java](http://sparkjava.com/) für Exerimente auf der Cloud. 
 
 
 
@@ -16,4 +16,4 @@ cf https://maven.fabric8.io/#generator-java-exec
     mvn package fabric8:resource fabric8:build fabric8:deploy
 
 
-
+Bem.: die Files in `src/main/fabric8` sind nicht nötig - templates für weitere Config. 
