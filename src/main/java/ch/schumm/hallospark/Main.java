@@ -16,7 +16,7 @@ public class Main {
 			staticFileLocation("/public");
 
 			get("/hallo/:name", (req, res) -> String.format("Hallo %s, sagt OpenShift!", req.params(":name")));
-			get("/", (req, res) -> "Index OpenShift!");
+			get("/", (req, res) -> "Das erste SparkJava auf OpenShift von Rémy!");
 			
 		}
 
