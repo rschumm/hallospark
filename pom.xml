@@ -124,6 +124,7 @@
 						<config>
 							<java-exec>
 								<mainClass>ch.schumm.hallospark.Main</mainClass>
+								<webPort>8080</webPort>
 							</java-exec>
 						</config>
 					</generator>
