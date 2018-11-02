@@ -122,11 +122,6 @@
 						<includes>
 							<include>java-exec</include>
 						</includes>
-						<config>
-							<java-exec>
-								<mainClass>ch.schumm.hallospark.Main</mainClass>
-							</java-exec>
-						</config>
 					</generator>
 				</configuration>
 			</plugin>
