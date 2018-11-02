@@ -18,6 +18,7 @@ Binary-build (mvn zu java jar) geschieht local mit maven
     oc projects
     oc project thespark
     mvn package fabric8:resource fabric8:build fabric8:deploy
+    mvn -Dmaven.test.skip=true package fabric8:resource fabric8:build fabric8:deploy 
 
 Alles wieder löschen: 
 

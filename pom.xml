@@ -16,7 +16,7 @@
 		<!-- <fabric8.mode>openshift</fabric8.mode> <fabric8.generator.fromMode>istag</fabric8.generator.fromMode> 
 			<fabric8.generator.from>redhat-openjdk18-openshift:1.3</fabric8.generator.from> 
 			<fabric8.skipResourceValidation>true</fabric8.skipResourceValidation> -->
-		<version.fabric8.plugin>3.5.41</version.fabric8.plugin>
+			<version.fabric8.plugin>3.5.42</version.fabric8.plugin>
 
 
 
@@ -121,6 +121,11 @@
 						<includes>
 							<include>java-exec</include>
 						</includes>
+						<config>
+							<java-exec>
+								<mainClass>ch.schumm.hallospark.Main</mainClass>
+							</java-exec>
+						</config>
 					</generator>
 				</configuration>
 			</plugin>
