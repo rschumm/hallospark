@@ -115,20 +115,6 @@
 				<groupId>io.fabric8</groupId>
 				<artifactId>fabric8-maven-plugin</artifactId>
 				<version>${version.fabric8.plugin}</version>
-				<configuration>
-
-					<generator>
-						<includes>
-							<include>java-exec</include>
-						</includes>
-						<config>
-							<java-exec>
-								<mainClass>ch.schumm.hallospark.Main</mainClass>
-								<webPort>8080</webPort>
-							</java-exec>
-						</config>
-					</generator>
-				</configuration>
 			</plugin>
 
 		</plugins>

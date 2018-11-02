@@ -5,8 +5,8 @@ Minimal-App auf Basis von [Spark-Java](http://sparkjava.com/) für Exerimente au
 
 # local OpenShift 
 
-basierend auf dem Plugin, fast-zero-conf-Methode: `fabric8-maven-plugin`  und dem `java-exec` generator-Plugin: 
-cf https://maven.fabric8.io/#generator-java-exec 
+basierend auf dem Plugin, [fast-zero-conf-Methode](https://maven.fabric8.io/#zero-config): `fabric8-maven-plugin`  und dem `java-exec` generator-Plugin: 
+cf [Java Applications Generator](https://maven.fabric8.io/#generator-java-exec)  
 
 
 ## für s2i "binary workflow 
