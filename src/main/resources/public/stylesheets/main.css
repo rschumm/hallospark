@@ -1,0 +1,36 @@
+html {
+    font-size: 14px;
+    font-family: "ReplicaLight",Helvetica,Arial;
+  }
+  @media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  body {
+    /* background-color: #0739ed;  */
+    background-color: #1b3aed;
+    color: white
+  }
+  
+  .container {
+    max-width: 960px;
+  }
+  
+  .pricing-header {
+    max-width: 700px;
+  }
+  
+  .card-deck .card {
+    min-width: 220px;
+    color: black; 
+  }
+
+  .card-header {
+    background: url(/diagonal.png);
+  }
+
+  .card-header h4 {
+      background-color: white
+  }

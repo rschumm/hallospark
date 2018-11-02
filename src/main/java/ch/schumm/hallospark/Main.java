@@ -4,6 +4,9 @@ import static spark.Spark.get;
 import static spark.Spark.port;
 import static spark.Spark.staticFileLocation;
 
+import spark.ModelAndView;
+import spark.template.freemarker.FreeMarkerEngine;
+
 
 public class Main {
 	
@@ -15,8 +18,12 @@ public class Main {
 			port(8080);
 			staticFileLocation("/public");
 
-			get("/hallo/:name", (req, res) -> String.format("Hallo %s, sagt OpenShift!", req.params(":name")));
-			get("/", (req, res) -> "Das erste SparkJava auf OpenShift von Rémy!");
+			get("/hallo", (req, res) -> "Hallo! Das erste SparkJava auf OpenShift von Rémy!");
+			get("/hoi/:name", (req, res) -> String.format("Hoi %s, sagt OpenShift!", req.params(":name")));
+
+			get("/", (req, res) -> {
+				return new ModelAndView(null, "index.ftl");
+			}, new FreeMarkerEngine());
 			
 		}
 
