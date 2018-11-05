@@ -6,7 +6,7 @@
 		<p>Rémy Schumm, ${.now?string.yyyy}  - hergestellt in der Schweiz </p> 
 		
 		<small>
-			Powered by <a href="https://www.okd.io/">okd java</a> 
+			Powered by <a href="https://www.okd.io/">okd java</a> and by <a href="http://sparkjava.com">spark java</a> 
 		</small>
 		
 	</small>
