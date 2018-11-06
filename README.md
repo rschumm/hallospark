@@ -21,15 +21,16 @@ Ziel:
 
 # local OpenShift 
 
-Installiert auf (minishift)[https://docs.okd.io/latest/minishift/index.html] oder einem beliebigen OpenShift-Cluster. 
+Installiert auf [minishift](https://docs.okd.io/latest/minishift/index.html) oder einem beliebigen OpenShift-Cluster. 
 
 basierend auf dem Plugin, [fast-zero-conf-Methode](https://maven.fabric8.io/#zero-config): `fabric8-maven-plugin`  und dem `java-exec` generator-Plugin: 
 cf [Java Applications Generator](https://maven.fabric8.io/#generator-java-exec)  
 
+Beide Methoden benötigen einen laufenden OpenShift Cluster und die `oc` Kommandozeilen-Tools, inkl. eines gültigen `oc login` 
 
 ## für s2i "binary workflow" 
 
-Binary-build (mvn zu java jar) geschieht local mit maven 
+Binary-build (mvn zu java jar) geschieht local mit maven - das binary wird dann zu OpenShift geschickt (daher der Name). 
 
     oc login https://192.168.42.xxx:8443 --token=<hidden>
     oc new-project thespark
@@ -56,7 +57,7 @@ Bem.: die Route für den Dienst wird nicht durch den Generator erstell und muss 
 
 ### github WebHook
 
-im "Build" hallospark kann unter "Configuration" der Webhook für github ausgelesen werden. Der kann dann in in github [registriert](https://docs.openshift.com/container-platform/3.11/dev_guide/builds/triggering_builds.html#github-webhooks) werden.  
+da der Build ab source direkt im OpenShift passiert, kann der Build über einen git WebHook gestartet werden. Dazu kann im "Build" hallospark unter "Configuration" der Webhook für github ausgelesen werden. Der kann dann in in github [registriert](https://docs.openshift.com/container-platform/3.11/dev_guide/builds/triggering_builds.html#github-webhooks) werden.  
 
 Bem.: das klappt nur für OpenShift Cluster, die im öffentlichen Netz erreichbar sind (bzw. vom github-Server aus o.ä.)  
 Bem.: wenn OpenShift keine gültigen Zertifikate hat, muss die SSL-Verifikation beim github-Webhook ausgeschaltet werden.  
