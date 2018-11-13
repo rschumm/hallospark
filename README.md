@@ -87,3 +87,6 @@ https://kotlinlang.org/docs/reference/using-maven.html
 http://sparkjava.com/documentation#getting-started  
 https://github.com/perwendel/spark-kotlin/blob/master/src/main/kotlin/spark/kotlin/Http.kt   
 
+Offene Probleme:   
+ - genrerierte Route referenziert falschen Port im generierten Service. 
+
