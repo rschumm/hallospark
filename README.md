@@ -77,3 +77,13 @@ Bem.: ab und zu hat die maven-jvm zu wenig RAM für den Build.
 
 Über einen mvn-Build und der neuen run-Command kann die Applikation gebuildet und im Entwicklungs-Container angeschaut werden.  
 Ein git-push löst einen Build im OpenShift Projekt aus.  
+
+# Kotlin
+
+Der Haupt-Kontroller soll in Kotlin geschrieben sein. 
+Doku:   
+https://kotlinlang.org/docs/reference/using-maven.html  
+
+http://sparkjava.com/documentation#getting-started  
+https://github.com/perwendel/spark-kotlin/blob/master/src/main/kotlin/spark/kotlin/Http.kt   
+
