@@ -9,7 +9,7 @@ Features:
 - s2i builds basierend auf [fabric8-maven-plugin](https://maven.fabric8.io/) 
 - s2i source build in OpenShift über github WebHook getriggert
 - Cloud-basierte Entwicklung in [eclipse che](https://www.eclipse.org/che/)
-- (WIP) Hauptkontroller in Kotlin
+- Hauptkontroller in Kotlin
 
 Ziel: 
 - minimale Applikation
@@ -80,13 +80,27 @@ Ein git-push löst einen Build im OpenShift Projekt aus.
 
 # Kotlin
 
-Der Haupt-Kontroller soll in Kotlin geschrieben sein. 
-Doku:   
+Der Haupt-Kontroller ist in Kotlin geschrieben.   
+
+Doku Spark Kotlin:   
 https://kotlinlang.org/docs/reference/using-maven.html  
 
+
 http://sparkjava.com/documentation#getting-started  
-https://github.com/perwendel/spark-kotlin/blob/master/src/main/kotlin/spark/kotlin/Http.kt   
+https://github
+
+Tutorial:   
+http://sparkjava.com/tutorials/kotlin  
+https://github.com/tipsy/spark-kotlin/blob/master/src/main/kotlin/app/Main.kt  
+
+
+Http Source:
+https://github.com/perwendel/spark-kotlin/blob/master/src/main/kotlin/spark/kotlin/Http.kt
+
+Doku Kotlin maven:   
+https://kotlinlang.org/docs/reference/using-maven.html  
+
 
 Offene Probleme:   
- - genrerierte Route referenziert falschen Port im generierten Service. 
+ - generierte Route referenziert falschen Port im generierten Service. 
 
