@@ -1,0 +1,26 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: pipeline
+  labels:
+    app: hallospark
+    name: pipeline
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: {}
+  output: {}
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    type: None
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfile: "try {\n    node('maven') {\n        stage('build'){\n            openshiftBuild(buildConfig:
+        'hallospark', showBuildLogs: 'true')\n        }\n        stage ('deploy'){\n
+        \           openshiftDeploy(deploymentConfig: 'hallospark')\n        }\n        stage(\"Test\")
+        {\n            input message: \"Test deployment: Isch guät?\", id: \"approval\"\n
+        \       }\n    }\n} catch (err) {\n   echo \"in catch block\"\n   echo \"Caught:
+        ${err}\"\n   currentBuild.result = 'FAILURE'\n   throw err\n}    "
+    type: JenkinsPipeline
+  successfulBuildsHistoryLimit: 5

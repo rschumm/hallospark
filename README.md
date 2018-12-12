@@ -51,6 +51,12 @@ Build (mvn zu java jar) geschieht ab source direkt in OpenShift (mit builder ima
 
     oc new-app fabric8/s2i-java~https://github.com/rschumm/hallospark.git
 
+bzw.   
+
+    oc new-app fabric8/s2i-java~https://gitlab.com/rschumm/hallospark.git --source-secret='gitlab-hallospark'
+
+Bem.: Secret speichern mit `oc get secret gitlab-hallospark -o yaml` und laden mit `oc apply -f ...` oder von Hand vorher erstellen.  
+
 
 Bem.: die Files in `src/main/fabric8` sind nicht nötig - templates für weitere Config.   
 Bem.: die Route für den Dienst wird nicht durch den Generator erstell und muss von Hand nachgeliefert werden, bzw. mit: `oc expose svc hallospark` 
@@ -61,6 +67,14 @@ da der Build ab source direkt im OpenShift passiert, kann der Build über einen 
 
 Bem.: das klappt nur für OpenShift Cluster, die im öffentlichen Netz erreichbar sind (bzw. vom github-Server aus o.ä.)  
 Bem.: wenn OpenShift keine gültigen Zertifikate hat, muss die SSL-Verifikation beim github-Webhook ausgeschaltet werden.  
+
+
+## Pipeline
+
+Speichern der Pipeline aus dem Beispiel (jetzt obsolet): `oc get bc sample-pipeline -o yaml`, dann laden laden mit `oc apply -f ...` 
+
+
+
 
 
 # eclipse che
