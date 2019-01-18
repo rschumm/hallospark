@@ -73,6 +73,29 @@ Bem.: wenn OpenShift keine gültigen Zertifikate hat, muss die SSL-Verifikation 
 
 Speichern der Pipeline aus dem Beispiel (jetzt obsolet): `oc get bc sample-pipeline -o yaml`, dann laden laden mit `oc apply -f ...` 
 
+## Build mit Jenkins
+
+Sobald Openshift eine BC mit Pipeline hat, wird Jenkins provisionniert. 
+
+
+## Openshift Multi-Stage-Deployment 
+
+
+Einfachstes Blueprint für Multi-Stage Deployment mit Jenkins-Build-Pipeline   
+
+- Jeder Stage ist ein eigenes OpenShift-Projekt im gleichen Cluster. 
+- Das Hauptprojekt hat als einziges eine Build-Configuration, z.B. eine s2i, welche wie oben beschrieben generiert wird. 
+- Das Hauptprojekt hat eine Jenkins-Build-Pipeline - sobald eine Build-Pipeline da ist, wird OpenShift automatisch einen Jenkins provisionieren. 
+- Die Build-Pipeline wird als normale Resource über ein `.yml` File geladen. Das Jenkinsfile kann referenziert werden. 
+- Die Build-Configuration buildet ein image, welches in ein Image-Stream mit Tag `:latest` gepushed wird. 
+- Die Deployment-Configuration des `dev` Stages ist auf `:latest` abonniert. 
+- Der Build-Step `deploy to prod` setzt mit `oc tag` auf den `:latest` Tag den Tag `:prod`  
+- Die Deployment-Configuration des `prod` Stagest ist auf `:prod` abonniert.  
+
+`tag` manuell: 
+
+    oc tag sparkpipe/hallospark:latest sparkpipe/hallospark:prod
+
 
 
 

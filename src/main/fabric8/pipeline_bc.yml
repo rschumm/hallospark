@@ -1,10 +1,11 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: pipeline
   labels:
     app: hallospark
     name: pipeline
+  name: pipeline
+  namespace: sparkpipe
 spec:
   failedBuildsHistoryLimit: 5
   nodeSelector: {}
@@ -16,11 +17,34 @@ spec:
     type: None
   strategy:
     jenkinsPipelineStrategy:
-      jenkinsfile: "try {\n    node('maven') {\n        stage('build'){\n            openshiftBuild(buildConfig:
-        'hallospark', showBuildLogs: 'true')\n        }\n        stage ('deploy'){\n
-        \           openshiftDeploy(deploymentConfig: 'hallospark')\n        }\n        stage(\"Test\")
-        {\n            input message: \"Test deployment: Isch guät?\", id: \"approval\"\n
-        \       }\n    }\n} catch (err) {\n   echo \"in catch block\"\n   echo \"Caught:
-        ${err}\"\n   currentBuild.result = 'FAILURE'\n   throw err\n}    "
+      jenkinsfile: |-
+        try {
+            //node('maven') {
+            node {
+                stage('deploy to dev'){
+                    openshiftBuild(buildConfig: 'hallospark', showBuildLogs: 'true')
+                }
+                //stage ('deploy'){
+                //    openshiftDeploy(deploymentConfig: 'hallospark')
+                //}
+                stage("approve the deployment") {
+                    input message: "Test deployment: Isch guät?", id: "approval"
+                }
+                stage("deploy prod"){
+                    //openshiftTag(destStream: 'sparkpipe/hallospark', destTag: 'prod', srcStream: 'sparkpipe/hallospark', srcTag: 'latest')
+                    //oc tag sparkpipe/hallospark:latest sparkpipe/hallospark:prod
+                    openshift.withCluster() { // Use "default" cluster or fallback to OpenShift cluster detection
+                        openshift.tag("sparkpipe/hallospark:latest", "sparkpipe/hallospark:prod")
+                    }
+                }
+            }
+        } catch (err) {
+           echo "in catch block"
+           echo "Caught: ${err}"
+           currentBuild.result = 'FAILURE'
+           throw err
+        }    
     type: JenkinsPipeline
   successfulBuildsHistoryLimit: 5
+  triggers: []
+status:
