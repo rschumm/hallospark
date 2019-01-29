@@ -114,3 +114,22 @@ Bem.: ab und zu hat die maven-jvm zu wenig RAM für den Build.
 
 Über einen mvn-Build und der neuen run-Command kann die Applikation gebuildet und im Entwicklungs-Container angeschaut werden.  
 Ein git-push löst einen Build im OpenShift Projekt aus.  
+
+alternative Run-commands: 
+
+maven build: 
+
+    mvn  verify -f ${current.project.path}
+
+java build: 
+
+    cd ${current.project.path}
+    javac -classpath ${project.java.classpath} -sourcepath ${project.java.sourcepath} -d ${project.java.output.dir} src/main/java/ch/schumm/hallospark/Main.java
+    java -classpath ${project.java.classpath}${project.java.output.dir} ch.schumm.hallospark.Main
+
+artefact run:
+
+    java -jar ${current.project.path}/target/hallospark-0.0.1-SNAPSHOT.jar
+
+
+
