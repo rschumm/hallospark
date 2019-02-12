@@ -90,7 +90,8 @@ Einfachstes Blueprint für Multi-Stage Deployment mit Jenkins-Build-Pipeline
 - Die Build-Configuration buildet ein image, welches in ein Image-Stream mit Tag `:latest` gepushed wird. 
 - Die Deployment-Configuration des `dev` Stages ist auf `:latest` abonniert. 
 - Der Build-Step `deploy to prod` setzt mit `oc tag` auf den `:latest` Tag den Tag `:prod`  
-- Die Deployment-Configuration des `prod` Stagest ist auf `:prod` abonniert.  
+- Die Deployment-Configuration des `prod` Stages wird von Hand mit "deploy image" erstellt. 
+- Die Deployment-Configuration des `prod` Stages ist auf `:prod` abonniert.  
 
 `tag` manuell: 
 

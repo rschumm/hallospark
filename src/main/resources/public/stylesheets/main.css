@@ -29,6 +29,15 @@
     font-family: "ReplicaLight",Helvetica,Arial;
   }
   
+  a {
+  	font-weight: bold; 
+  	color: inherit; 
+  }
+  
+  a:hover {
+  	color: inherit;
+  }
+  
   h1 {
   	font-family: "ReplicaBold";
   }

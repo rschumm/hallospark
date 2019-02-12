@@ -10,7 +10,7 @@
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">okd Viadukt Menu Spy</h1>
       <p class="lead">Simple Java Spark Application to be deployed with minimal effort - for a good and healthy food.</p>
-      <p class="lead">Das beste Essen gibt es im Restaurant Viadukt.</p>
+      <p class="lead">Das beste Essen gibt es im <a href="https://www.restaurant-viadukt.ch/speis-trank/tagesmenue/">Restaurant Viadukt</a>.</p>
 </div>
 
 <div class="container">
