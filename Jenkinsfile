@@ -11,10 +11,10 @@ try {
             input message: "Test deployment: Isch guät?", id: "approval"
         }
         stage("deploy prod"){
-            //openshiftTag(destStream: 'sparkpipe/hallospark', destTag: 'prod', srcStream: 'sparkpipe/hallospark', srcTag: 'latest')
-            //oc tag sparkpipe/hallospark:latest sparkpipe/hallospark:prod
+            //openshiftTag(destStream: 'viadukt/hallospark', destTag: 'prod', srcStream: 'viadukt/hallospark', srcTag: 'latest')
+            //oc tag viadukt/hallospark:latest viadukt/hallospark:prod
             openshift.withCluster() { // Use "default" cluster or fallback to OpenShift cluster detection
-                openshift.tag("sparkpipe/hallospark:latest", "sparkpipe/hallospark:prod")
+                openshift.tag("viadukt/hallospark:latest", "viadukt/hallospark:prod")
             }
         }
     }

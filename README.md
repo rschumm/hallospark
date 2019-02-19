@@ -49,10 +49,12 @@ Alles wieder löschen:
 
 Build (mvn zu java jar) geschieht ab source direkt in OpenShift (mit builder image und maven etc.) 
 
+    oc new-project viadukt
     oc new-app fabric8/s2i-java~https://github.com/rschumm/hallospark.git
 
-bzw.   
-
+bzw. (mit gitlab-secret)
+  
+    oc new-project viadukt
     oc new-app fabric8/s2i-java~https://gitlab.com/rschumm/hallospark.git --source-secret='gitlab-hallospark'
 
 Bem.: Secret speichern mit `oc get secret gitlab-hallospark -o yaml` und laden mit `oc apply -f ...` oder von Hand vorher erstellen.  
