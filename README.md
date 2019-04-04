@@ -80,7 +80,10 @@ Speichern der Pipeline aus dem Beispiel (jetzt obsolet): `oc get bc sample-pipel
 
 Das Jenkinsfile kann auch im `git` referenziert werden, anstatt es hier einzubetten.  
 
-Tutorial in der [Doku](https://docs.okd.io/latest/dev_guide/dev_tutorials/openshift_pipeline.html#overview)
+Tutorial in der [Doku](https://docs.okd.io/latest/dev_guide/dev_tutorials/openshift_pipeline.html#overview)  
+Weitere Doku: 
+- [Pipeline Execution](https://docs.okd.io/latest/install_config/configuring_pipeline_execution.html)
+- [Pipeline](https://docs.okd.io/latest/dev_guide/openshift_pipeline.html) 
 
 ## Build mit Jenkins
 
