@@ -40,7 +40,8 @@
   }
   
   h1 {
-  	font-family: "ReplicaBold";
+    /* font-family: "Rubik",Helvetica,Arial; */
+    font-weight: bold; 
   }
   
   .container {
