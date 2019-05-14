@@ -31,14 +31,13 @@ public class Main {
 
 
 			get("/menu", (req, res) -> {
-
+				res.type("application/json");
 				return ViaduktParser.fetchMenu(LocalDate.now());
 			}, gson::toJson);
 	
 			get("/menu/:date", (req, res) -> {
-	
 				LocalDate date = LocalDate.parse(req.params(":date"));
-	
+				res.type("application/json");
 				return ViaduktParser.fetchMenu(date);
 			}, gson::toJson);
 
