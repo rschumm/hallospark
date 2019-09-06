@@ -48,14 +48,11 @@ Alles wieder löschen:
 ## für s2i "source workflow"
 
 Build (mvn zu java jar) geschieht ab source direkt in OpenShift (mit builder image und maven etc.) 
-
-    oc new-project viadukt
-    oc new-app fabric8/s2i-java~https://github.com/rschumm/hallospark.git
-
-bzw. (mit gitlab-secret)
+(mit bitbucket-secret, vorhher anlegen...)
   
     oc new-project viadukt
-    oc new-app fabric8/s2i-java~https://gitlab.com/rschumm/hallospark.git --source-secret='gitlab-hallospark'
+    oc new-app fabric8/s2i-java~git@github.com:rschumm/hallospark.git
+    optional: --source-secret='git-rs'
 
 Bem.: Secret speichern mit `oc get secret gitlab-hallospark -o yaml` und laden mit `oc apply -f ...` oder von Hand vorher erstellen.  
 
@@ -146,3 +143,8 @@ artefact run:
 
 
 
+# local run
+
+    artefact run:
+
+    java -jar target/hallospark-0.0.1-SNAPSHOT.jar
