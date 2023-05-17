@@ -148,3 +148,16 @@ artefact run:
     artefact run:
 
     java -jar target/hallospark-0.0.1-SNAPSHOT.jar
+    
+# Diagram 
+
+
+Here is a simple flow chart:
+
+```mermaid
+classDiagram;
+    FuzzyModel ..> WunderListener;
+
+```
+
+
